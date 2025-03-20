@@ -4,13 +4,101 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>replit</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+  <title>Hideout 1</title>
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script> 
+  <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+  <script src="script.js"></script>
 </head>
 
 <body>
-  Hello world
-  <script src="script.js"></script>
-</body>
+<a-scene>
+  <<a-sky src="images/my_sky.jpg" alt="my background image"></a-sky> 
+<!-- Start of Whare/ House/ Museum -->
+     <a-box id="floor" position="0 0 0" src="images/wood-1700562_1280.jpg" scale="10.5 10.5 .1" rotation="90 0 0"></a-box>
+    <a-box id="wall1_TahaHinengaro" position="0  1.473  4.907" rotation="0  0  0" scale="10  3  0.2" src="images/offwhite.jpg"></a-box>
+    <a-box id="wall2_TahaTinana" position="0  1.473  -4.907" rotation="0  0  0" scale="10  3  0.2" src="images/offwhite.jpg"></a-box>
+    <a-box id="wall3_TahaWhānau" position="5.049  1.454  -0.008" rotation="0  -90  0" scale="10  3  0.2" src="images/offwhite.jpg"></a-box>
+    <a-box id="wall4_TahaWairua" position="-5.049  1.454  -0.008" rotation="0  -90  0" scale="10  3  0.2" src="images/offwhite.jpg"></a-box>
+    <a-cylinder id="triangle_front" segments-radial="3" position="0  3.874 4.907" rotation="-90  0  0" scale="5.774  0.2  1.8" src="images/offwhite.jpg"></a-cylinder>
+    <a-cylinder id="triangle_back" segments-radial="3" position="0  3.874 -4.907" rotation="-90  0  0" scale="5.774  0.2  1.8" src="images/offwhite.jpg"></a-cylinder>
+    <a-box id="roof_right" position="2.580  4.328  0" rotation="28.433  90  0" scale= "10.931 0.20  6.110" src="images/wood-1700562_1280.jpg"></a-box>
+    <a-box id="roof_left" position="-2.599  4.3321  -0.017" rotation="28.433  -90  0" scale= "10.931 0.20  6.130" src="images/wood-1700562_1280.jpg"></a-box>
+    <a-plane id="art1" src="images/cat-6485361_640.jpg" scale="2 2 0.05" rotation="0 0 0" position="-0.162 1.934 -4.792"></a-plane>
+    <a-assets>
 
+        <!-- Video -->
+
+        <video id="videoclip" loop="true" src="tvAssets/244754_small.mp4" crossorigin="anonymous" preload="auto"></video>
+
+        <img id="play" src="tvAssets/btnPlay.png" preload="auto">
+
+        <img id="pause" src="tvAssets/btnPause.png" preload="auto">
+
+        <img id="tv_background" src="tvAssets/tv_background.jpg" preload="auto">
+
+    </a-assets>
+
+    <a-entity>
+
+      <a-video src="#videoclip" position="-3.893 1.6 0" rotation="0 90 0" width="2" height="1.125"></a-video>
+
+      <!-- TV background -->
+
+      <a-plane id="videoControls" position="-3.893 0.854 0" scale="2 0.386 1.714" rotation="0 90 0" opacity="1" src="#tv_background">
+
+        <!-- Play button -->
+
+        <a-plane id="vidplaybox" src="#play" scale="0.122 0.678 0.122" position="-0.350 0 .01" shader="flat"  transparent="true" videoplayer></a-plane>
+
+        <!-- Stop button -->
+
+        <a-plane id="vidpausebox" src="#pause" scale="0.122 0.678 0.122" position="0.350 0 .01" shader="flat"  transparent="true" videopauser></a-plane>
+
+      </a-plane>
+
+    </a-entity>
+
+    <a-entity cursor="rayOrigin: mouse"></a-entity>
+    
+      <!-- Movement-->
+
+      <!-- Camera + controllers rig -->
+
+      <a-entity id="rig">
+
+        <a-camera position="0 1.6 0"></a-camera>
+
+    <!-- left hand controller with laser pointer -->
+
+        <a-entity laser-controls="hand: left" ></a-entity>
+
+        <a-entity oculus-touch-controls="hand: right" oculus-thumbstick-controls></a-entity>
+
+      </a-entity>
+
+    </a-entity>
+</a-scene>
+  <script src="https://gftruj.github.io/webzamples/aframe/controls/oculus-thumbstick-controls.js"></script>
+</body>
+  <a-entity>
+
+    <a-video src="#videoclip" position="-3.893 1.6 0" rotation="0 90 0" width="2" height="1.125"></a-video>
+
+    <!-- TV background -->
+
+    <a-plane id="videoControls" position="-3.893 0.854 0" scale="2 0.386 1.714" rotation="0 90 0" opacity="1" src="#tv_background">
+
+      <!-- Play button -->
+
+      <a-plane id="vidplaybox" src="#play" scale="0.122 0.678 0.122" position="-0.350 0 .01" shader="flat"  transparent="true" videoplayer></a-plane>
+
+      <!-- Stop button -->
+
+      <a-plane id="vidpausebox" src="#pause" scale="0.122 0.678 0.122" position="0.350 0 .01" shader="flat"  transparent="true" videopauser></a-plane>
+
+    </a-plane>
+
+  </a-entity>
+
+  <a-entity cursor="rayOrigin: mouse"></a-entity>
 </html>
